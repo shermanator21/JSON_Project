@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/joseph/Documents/AdvancedPython/JSON_Project/.venv/bin/python3"
+    "python.pythonPath": "/Users/joseph/Documents/AdvancedPython/JSON_Project/.venv/bin/python3",
+    "python.formatting.provider": "autopep8"
 }

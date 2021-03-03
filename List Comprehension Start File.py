@@ -1,11 +1,11 @@
-'''List comprehensions provide a concise way to create lists. 
+'''List comprehensions provide a concise way to create lists.
 
 It consists of brackets containing an expression followed by a for clause, then
 zero or more for or if clauses. The expressions can be anything, meaning you can
 put in all kinds of objects in lists.
 
 The result will be a new list resulting from evaluating the expression in the
-context of the for and if clauses which follow it. 
+context of the for and if clauses which follow it.
 
 The list comprehension always returns a result list. '''
 
@@ -100,21 +100,27 @@ print(output)
 
 # 6) Creating a list based on a condition
 
-
-#Output - [0, 4, 16]
+new_range = [i * i for i in range(5) if i % 2 == 0]
+print(new_range)
+# Output - [0, 4, 16]
 
 
 # 7) Extracting numbers only from a string and putting it in a list
 
-
+string = "Hello 12345 World"
+numbers = [i for i in string if i.isdigit()]
+letters = [i for i in string if i.isalpha()]
+print(numbers)
+print(letters)
 # Output - ['1', '2', '3', '4', '5']
+# Output - ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd']
 
 
-# 8
-''' 
-In this example, we can see how to get specific lines out from a text file. 
+# 8)
+'''
+In this example, we can see how to get specific lines out from a text file.
 
-Create a text file and put in some text in it. 
+Create a text file and put in some text in it.
 
 this is line1
 this is line2
@@ -124,34 +130,46 @@ this is line5
 
 Save the file as test.txt '''
 
+thefile = open("test.txt", "r")
 
-#Output: ['this is line3']
+result = [i for i in thefile if "line3" in i]
+print(result)
+
+# Output: ['this is line3']
 
 
 # 9) Using functions in list comprehension
 
 # Create a function and name it double:
+def double(x):
+    return x*2
 
 
 # If you now just print that function with a value in it, it should look like this:
-
-
+print(double(10))
 # Answer - 20
 
 
 # We can easily use list comprehension on that function.
 
-
+i = [double(x) for x in range(10)]
+print(i)
 # Output - [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 
 # 10) adding an IF condition to the above
-
+i = [double(x) for x in range(10) if x % 2 == 0]
+print(i)
 
 # Output - [0, 4, 8, 12, 16]
 
 
 # 11) You can add more arguments (using multiple iterators and lists):
 
+myList = [x+y for x in [10, 20, 30] for y in [20, 30, 40]]
+print(myList)
+# Output - [30, 40, 50, 40, 50, 60, 50, 60, 70]
+#(10+20, 10+30, 10+40, 20+20, 20+30, 20+40, 30+20, 30+30, 30+40)
 
-# Output - [30, 50, 70, 50, 70, 90, 70, 90, 110]
+
+# ........three parts of list comprehension: Expression, iteration (loop), and condition (if statement)........

@@ -1,11 +1,11 @@
-'''List comprehensions provide a concise way to create lists. 
+'''List comprehensions provide a concise way to create lists.
 
 It consists of brackets containing an expression followed by a for clause, then
 zero or more for or if clauses. The expressions can be anything, meaning you can
 put in all kinds of objects in lists.
 
 The result will be a new list resulting from evaluating the expression in the
-context of the for and if clauses which follow it. 
+context of the for and if clauses which follow it.
 
 The list comprehension always returns a result list. '''
 
@@ -48,6 +48,9 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
+newlist = [int(i) for i in numbers if i > 0]
+print(newlist)
+
 
 # 2 create a list of integers which specify the length of each word in
 # a sentence except for the word 'the'
@@ -55,10 +58,16 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
+word_length = [len(i) for i in words if i != "the"]
+print(word_length)
 
-# Given dictionary is consisted of vehicles and their weights in kilograms.
+
+# 3 Given dictionary is consisted of vehicles and their weights in kilograms.
 # Contruct a list of the names of vehicles with weight below 5000 kilograms.
 # In the same list comprehension make the key names all upper case.
 
 dict = {"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400,
         "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
+
+vehicles = [i.upper() for i in dict if dict[i] < 5000]
+print(vehicles)
